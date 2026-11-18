@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/header') %>
+<section class="hero">
+  <h1> Track every workout in one place.</h1>
+  <p> Log the progress you did, how long it took and how it felt</p>
+  <a class="hero-button" href="/sessions/new">+ Log a session</a>
+</section>
+
+<section id="sessions">
+  <h2>Recent Sessions</h2>
+  <!--Member 3 replace with this with the sessions table-->
+  <p> No Sessions to show yet.</p>
+</section>
+
+<%-include('partials/footer')%>
