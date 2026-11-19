@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+    <section class="session-form-section">
+        <h1>Log a Session</h1>
+        <p>Record your workout and keep track of your progress.</p>
+
+        <form action="/sessions" method="POST">
+
+            <div class="form-group">
+                <label for="type">Workout Type</label>
+                <select id="type" name="type" required>
+                    <option value="">Select a workout</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Running">Running</option>
+                    <option value="Weight Training">Weight Training</option>
+                    <option value="Boxing">Boxing</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Workout Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration (minutes)</label>
+                <input type="number" id="duration" name="duration" min="1" placeholder="e.g. 45" required>
+            </div>
+
+            <div class="form-group">
+                <label for="intensity">Intensity</label>
+                <select id="intensity" name="intensity" required>
+                    <option value="">Select intensity</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="How did your workout go?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Save Session</button>
+
+            <a href="/" class="cancel-button">Cancel</a>
+
+        </form>
+    </section>
+
+    <%- include('partials/footer') %>
