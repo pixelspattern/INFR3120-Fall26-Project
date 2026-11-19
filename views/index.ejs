@@ -39,16 +39,38 @@
           </thead>
 
           <tbody>
-            <!-- Member 3: Display saved workout records here -->
+            <% if (sessions.length> 0) { %>
+              <% sessions.forEach(function(session) { %>
+                <tr>
+                  <td>
+                    <%= session.date.toLocaleDateString() %>
+                  </td>
+                  <td>
+                    <%= session.type %>
+                  </td>
+                  <td>
+                    <%= session.duration %> minutes
+                  </td>
+                  <td>
+                    <%= session.intensity %>
+                  </td>
+                  <td>
+                    <%= session.notes || '-' %>
+                  </td>
+                </tr>
+                <% }); %>
+                  <% } %>
           </tbody>
 
         </table>
       </div>
 
-      <div class="empty-state">
-        <p>No sessions to show yet.</p>
-        <span>Start tracking your progress by logging your first workout!</span>
-      </div>
+      <% if (sessions.length===0) { %>
+        <div class="empty-state">
+          <p>No sessions to show yet.</p>
+          <span>Start tracking your progress by logging your first workout!</span>
+        </div>
+        <% } %>
 
     </div>
 
