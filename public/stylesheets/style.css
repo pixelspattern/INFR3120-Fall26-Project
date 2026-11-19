@@ -204,6 +204,18 @@ body {
 
 /* Log a Session Page */
 
+.success-message {
+  max-width: 760px;
+  margin: 25px auto -35px;
+  padding: 12px;
+  text-align: center;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  left: -5px;
+}
+
 .session-form-section {
   max-width: 760px;
   margin: 55px auto;

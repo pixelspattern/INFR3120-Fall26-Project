@@ -1,4 +1,5 @@
 var express = require('express');
+var Session = require('../models/Session');
 var router = express.Router();
 
 // Display the Log a Session form
@@ -59,8 +60,25 @@ router.post('/', function (req, res, next) {
         });
     }
 
-    // Information is valid. Database saving will be added next.
-    res.send('Your workout details have been successfully submitted!');
+    // Information is valid. Save the workout session to MongoDB.
+    var newSession = new Session({
+        type: type,
+        date: workoutDate,
+        duration: duration,
+        intensity: intensity,
+        notes: notes
+    });
+
+    newSession.save()
+        .then(function () {
+            res.render('new-session', {
+                title: 'Log a Session',
+                success: 'Workout successfully saved!'
+            });
+        })
+        .catch(function (error) {
+            next(error);
+        });
 
 });
 
